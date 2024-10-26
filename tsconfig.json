@@ -8,6 +8,7 @@
     "jsx": "react-jsx",
     "lib": ["dom", "esnext"],
     "module": "esnext",
+    "skipLibCheck": true, 
     "moduleResolution": "node",
     "noEmitOnError": true,
     "outDir": "build",
