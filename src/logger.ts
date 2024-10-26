@@ -1,6 +1,18 @@
 import winston, { Logger } from 'winston';
 import { ElasticsearchTransport, LogData } from 'winston-elasticsearch';
 
+// Custom transformer function
+const esTransformer = (logData: LogData) => {
+  // Customize this to match the expected structure for Elasticsearch
+  return {
+    message: logData.message,
+    level: logData.level,
+    timestamp: logData.timestamp,
+    // Add any additional fields you need
+    ...logData.meta,
+  };
+};
+
 export const winstonLogger = (elasticsearchNode: string, name: string, level: string): Logger => {
   const options = {
     console: {
@@ -11,6 +23,7 @@ export const winstonLogger = (elasticsearchNode: string, name: string, level: st
     },
     elasticsearch: {
       level,
+      transformer: esTransformer,  // Use the custom transformer
       clientOpts: {
         node: elasticsearchNode,
         log: level,
@@ -18,7 +31,7 @@ export const winstonLogger = (elasticsearchNode: string, name: string, level: st
         requestTimeout: 10000,
         sniffOnStart: false,
       },
-      apm: {},  // Add this empty object or configure it as needed
+      apm: {},  // Required, can be an empty object if not using APM
     },
   };
 
