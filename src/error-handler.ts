@@ -1,6 +1,5 @@
 import { StatusCodes } from 'http-status-codes';
 
-
 export interface IErrorResponse {
   message: string;
   statusCode: number;
@@ -31,7 +30,7 @@ export abstract class CustomError extends Error {
       message: this.message,
       statusCode: this.statusCode,
       status: this.status,
-      comingFrom: this.comingFrom
+      comingFrom: this.comingFrom,
     }
   }
 }
@@ -44,7 +43,6 @@ export class BadRequestError extends CustomError {
     super(message, comingFrom);
   }
 }
-
 
 export class NotFoundError extends CustomError {
   statusCode = StatusCodes.NOT_FOUND;

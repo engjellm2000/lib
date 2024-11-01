@@ -13,7 +13,7 @@ export function uploads(
         public_id,
         overwrite,
         invalidate,
-        resource_type: 'auto' //zip, images and more...
+        resource_type: 'auto' // zip, images
       },
       (error: UploadApiErrorResponse | undefined, result: UploadApiResponse | undefined) => {
         if (error) resolve(error);
@@ -22,8 +22,6 @@ export function uploads(
     );
   });
 }
-
-
 
 export function videoUpload(
   file: string,
