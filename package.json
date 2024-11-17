@@ -1,5 +1,5 @@
 {
-  "version": "0.0.2",
+  "version": "0.0.3",
   "license": "MIT",
   "types": "./src/index.d.ts",
   "description": "Librari ndihmese per aplikacionin",
@@ -15,11 +15,11 @@
     "trailingComma": "es5"
   },
   "keywords": [],
-  "name": "@engjellm2000/shared",
+  "name": "@engjellm2000/lib",
   "author": "Engjell Mustafa",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/engjellm2000/shared.git"
+    "url": "git+https://github.com/engjellm2000/lib.git"
   },
   "publishConfig": {
     "registry": "https://npm.pkg.github.com"
